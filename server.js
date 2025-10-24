@@ -2,7 +2,6 @@ import fs from "node:fs/promises";
 import express from "express";
 import { Transform } from "node:stream";
 import { Pool } from "pg";
-// const dotenv = require("dotenv").config();
 import "dotenv/config";
 
 // Constants
