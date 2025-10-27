@@ -1,0 +1,23 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  background-color: #161D2F;
+  /* height: 360px; */
+  width: 480px;
+  gap: 10px;
+}
+form input {
+  background-color: rgba(196, 199, 255, 0.859);
+  padding-left: 12px;
+  border-radius: 8px;
+  height: 28px;
+}
+
+.login-form-header {
+  color: white;
+}
+
+
+
+/* .sign-up-container, .login-guest-container */
