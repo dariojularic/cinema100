@@ -1,3 +1,8 @@
 body {
   background-color: #10141E;
+  font-family: sans-serif;
+}
+
+p {
+  color: white;
 }

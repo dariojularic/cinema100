@@ -6,7 +6,7 @@ function LoginForm() {
       <h2 className="login-form-header">Log In</h2>
       <input type="email" placeholder="Email" />
       <input type="password" placeholder="Password" />
-      <button>Log In</button>
+      <button className="login-btn btn">Log In</button>
       <div className="sign-up-container">
         <p>Don't have an account ?</p>
         <button>Sign up</button>

@@ -3,21 +3,40 @@
   flex-direction: column;
   padding: 48px;
   background-color: #161D2F;
-  /* height: 360px; */
   width: 480px;
   gap: 10px;
+  border-radius: 8px;
 }
+
 form input {
-  background-color: rgba(196, 199, 255, 0.859);
+  background-color: #C5C6CB;
   padding-left: 12px;
   border-radius: 8px;
-  height: 28px;
+  height: 36px;
+}
+
+.login-btn {
+  background-color: #E34040;
+  border-radius: 8px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 .login-form-header {
   color: white;
 }
 
+.sign-up-container, .login-guest-container {
+  display: flex;
+  justify-content: center;
+}
 
-
-/* .sign-up-container, .login-guest-container */
+.sign-up-container button, .login-guest-container button {
+  background-color: transparent;
+  border: none;
+  color: #E34040;
+  font-size: 18px;
+  cursor: pointer;
+}
