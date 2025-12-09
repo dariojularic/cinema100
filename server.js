@@ -4,15 +4,12 @@ import { Transform } from "node:stream";
 import { Pool } from "pg";
 import "dotenv/config";
 
-
-
 // 1 svu applikaciju radim u app.jsx
 // 2 sve komponente uklljucujem u app.jsx
 // 3 potrebno je napravit zahtjev (fetch) na frontendu ka node.js backendu
 // 4 array filmova poslat frontendu i te filmove prikazat
 // 5 nema ruta na frontendu, sve se desava na / tj app.jsx
 // 6 ruter na backendu nisu rute u smislu da se na njih ide u smislu url -> vise kao api endpoints
-
 
 // Constants
 const isProduction = process.env.NODE_ENV === "production";
@@ -61,20 +58,19 @@ if (!isProduction) {
 }
 
 app.get("/a", async (req, res) => {
+  // res.send("<h1>hello wordl</h1>");
 
-  res.send("<h1>hello wordl</h1>");
+  const client = await pool.connect();
 
-  // const client = await pool.connect();
-
-  // try {
-  //   const result = await client.query("SELECT * FROM users");
-  //   console.log(result.rows);
-  //   res.json(result.rows);
-  // } catch (error) {
-  //   console.log(error);
-  // } finally {
-  //   client.release();
-  // }
+  try {
+    const result = await client.query("SELECT * FROM users");
+    console.log("result.rows", result.rows);
+    res.json(result.rows);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    client.release();
+  }
 });
 
 // Serve HTML
@@ -91,9 +87,9 @@ app.use("*all", async (req, res) => {
       template = await fs.readFile("./index.html", "utf-8");
 
       template = await vite.transformIndexHtml(url, template);
-      console.log(template)
+      // console.log(template)
       render = (await vite.ssrLoadModule("/src/entry-server.jsx")).render;
-      console.log(render)
+      // console.log(render)
     } else {
       template = templateHtml;
       render = (await import("./dist/server/entry-server.js")).render;
@@ -158,4 +154,4 @@ app.use("*all", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
 });
-console.log(port);
+// console.log(port);
